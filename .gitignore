@@ -1,3 +1,5 @@
 data
 */__pycache__
 hof.egg-info
+dist
+build

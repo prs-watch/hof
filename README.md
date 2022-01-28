@@ -2,6 +2,12 @@
 
 Not practical tool to make Baseball Hall of Fame as you want.
 
+## Installation
+
+```bash
+$ pip install hof
+```
+
 ## Usage
 
 ```bash

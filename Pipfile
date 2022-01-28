@@ -10,6 +10,8 @@ rich = "*"
 pandas = "*"
 
 [dev-packages]
+twine = "*"
+wheel = "*"
 
 [requires]
 python_version = "3.10"

@@ -35,7 +35,7 @@ def __hof() -> pd.DataFrame:
     Returns:
         pd.DataFrame: hof.
     """
-    return pd.read_csv(f"{PWD}/data/hof.csv")
+    return pd.read_csv(f"{PWD}/hof.csv")
 
 
 def __hof_inducted_yes() -> pd.DataFrame:
@@ -54,7 +54,7 @@ def __save(df: pd.DataFrame):
     Args:
         df (pd.DataFrame): data to save.
     """
-    df.to_csv(f"{PWD}/data/hof.csv", index=False)
+    df.to_csv(f"{PWD}/hof.csv", index=False)
 
 
 @click.group()
@@ -174,9 +174,9 @@ def remove(name: str):
 def destroy():
     """destroy hof.
     """
-    hof = pd.read_csv(f"{PWD}/data/hof.csv")
+    hof = __hof()
     hof = hof.drop(range(len(hof)))
-    hof.to_csv(f"{PWD}/data/hof.csv", index=False)
+    __save(hof)
     CONSOLE.print("[bold red]Done![/bold red] :bomb:")
     CONSOLE.print("Goodbye baseball.. :hand:")
     CONSOLE.print(__create_table(hof))

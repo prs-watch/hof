@@ -1,12 +1,15 @@
-from importlib.metadata import entry_points
-from setuptools import setup
+import setuptools
 
-setup(
+setuptools.setup(
     name="hof",
-    version="0.0.0",
-    py_modules=["cmd"],
+    author="prs-watch",
+    version="1.0.0",
+    description="not practical tool to make hof as you want.",
+    url="https://github.com/prs-watch/hof",
+    license="MIT",
+    packages=setuptools.find_packages(),
     install_requires = [
-        "pybaseball", "click"
+        "pybaseball", "click", "rich", "pandas"
     ],
     entry_points={
         "console_scripts": [
