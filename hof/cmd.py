@@ -59,15 +59,13 @@ def __save(df: pd.DataFrame):
 
 @click.group()
 def hof():
-    """root command.
-    """
+    """root command."""
     pass
 
 
 @hof.command()
 def init():
-    """initialize hof data.
-    """
+    """initialize hof data."""
     people = pb.people()
     hof = pb.hall_of_fame()
     hof = hof.merge(people, on="playerID")[
@@ -97,7 +95,7 @@ def init():
 @click.option("--votedby", "-V", type=str, help="voted by who.")
 @click.option("--head", type=int, help="line number to show from head.")
 @click.option("--tail", type=int, help="line number to show from tail.")
-def show(category:str, votedby:str, head:int, tail:int):
+def show(category: str, votedby: str, head: int, tail: int):
     """show hof data.
 
     Args:
@@ -172,8 +170,7 @@ def remove(name: str):
 
 @hof.command()
 def destroy():
-    """destroy hof.
-    """
+    """destroy hof."""
     hof = __hof()
     hof = hof.drop(range(len(hof)))
     __save(hof)
