@@ -16,4 +16,4 @@ pytest = "*"
 numpy = "*"
 
 [scripts]
-test = "python -m pip install -e . && pytest tests"
+test = "bash -c 'python -m pip install -e . && pytest tests'"
