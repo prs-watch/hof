@@ -3,7 +3,7 @@ import setuptools
 setuptools.setup(
     name="hof",
     author="prs-watch",
-    version="1.0.0",
+    version="1.0.1",
     description="not practical tool to make hof as you want.",
     url="https://github.com/prs-watch/hof",
     license="MIT",
