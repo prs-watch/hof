@@ -7,7 +7,8 @@ from rich.table import Table
 import pandas as pd
 
 # consts
-PWD = os.getcwd()
+PWD = os.path.dirname(__file__)
+DATA_DIR = f"{PWD}/../data"
 CONSOLE = Console()
 
 
@@ -35,7 +36,7 @@ def __hof() -> pd.DataFrame:
     Returns:
         pd.DataFrame: hof.
     """
-    return pd.read_csv(f"{PWD}/hof.csv")
+    return pd.read_csv(f"{DATA_DIR}/hof.csv")
 
 
 def __hof_inducted_yes() -> pd.DataFrame:
@@ -54,7 +55,7 @@ def __save(df: pd.DataFrame):
     Args:
         df (pd.DataFrame): data to save.
     """
-    df.to_csv(f"{PWD}/hof.csv", index=False)
+    df.to_csv(f"{DATA_DIR}/hof.csv", index=False)
 
 
 @click.group()
@@ -66,6 +67,9 @@ def hof():
 @hof.command()
 def init():
     """initialize hof data."""
+    if not os.path.exists(DATA_DIR):
+        os.mkdir(DATA_DIR)
+
     people = pb.people()
     hof = pb.hall_of_fame()
     hof = hof.merge(people, on="playerID")[
@@ -125,7 +129,7 @@ def add(name: str):
     Args:
         name ([str]): name you want to add.
     """
-    hof = __hof_inducted_yes()
+    hof = __hof()
     row = pd.DataFrame(
         [
             [
@@ -161,8 +165,8 @@ def remove(name: str):
     Args:
         name (str): name you want to remove.
     """
-    hof = hof = __hof_inducted_yes()
-    hof = hof[hof["NAME"].str.lower() != name]
+    hof = __hof()
+    hof = hof[hof["NAME"].str.lower() != name.lower()]
     __save(hof)
     CONSOLE.print("[bold red]Removed![/bold red] :skull:")
     CONSOLE.print(f"[bold red]{name}[/bold red] is no longer on hof..")

@@ -12,6 +12,8 @@ pandas = "*"
 [dev-packages]
 twine = "*"
 wheel = "*"
+pytest = "*"
+numpy = "*"
 
 [requires]
 python_version = "3.10"
