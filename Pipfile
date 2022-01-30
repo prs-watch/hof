@@ -17,3 +17,4 @@ numpy = "*"
 
 [scripts]
 test = "bash -c 'python -m pip install -e . && pytest tests'"
+build = "bash -c 'python setup.py sdist && python setup.py bdist_wheel'"
