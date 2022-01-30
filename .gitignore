@@ -1,5 +1,7 @@
-data
+/data
 */__pycache__
-hof.egg-info
-dist
-build
+/hof.egg-info
+/dist
+/build
+.pytest_cache
+Pipfile.lock
