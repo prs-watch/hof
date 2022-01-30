@@ -15,8 +15,5 @@ wheel = "*"
 pytest = "*"
 numpy = "*"
 
-[requires]
-python_version = "3.10"
-
 [scripts]
 test = "pytest tests"
