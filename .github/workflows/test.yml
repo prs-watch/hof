@@ -19,7 +19,9 @@ jobs:
         run: pipenv lock
       
       - name: install packages
-        run: pipenv sync --dev
+        run: |
+          pipenv sync --dev
+          python -m pip install -e .
       
       - name: run test
         run: pipenv run test
